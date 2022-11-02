@@ -88,5 +88,6 @@ void Jogador::initOBJ() {
     podePular = false;
     vidas = 3;
     jumpTimer = 0;
-
+    velocidade.x = 0; 
+    velocidade.y = 0;
 }
