@@ -18,6 +18,7 @@ public:
 	void applyGravity() { body.move(sf::Vector2f(0.f, 0.5f)); }
 
 	virtual void initOBJ();
+	virtual void executarOBJ();
 	//toda a parte de colisao foi retirada e adaptada deste video: https://www.youtube.com/watch?v=l2iCYCLi6MU&t=942s
 	bool checkCollision(Entidade& other, sf::Vector2f& direction, float pushValue);
 	sf::Vector2f getPosition() { return corpo.getPosition(); }

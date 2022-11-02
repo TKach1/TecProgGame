@@ -91,3 +91,8 @@ void Jogador::initOBJ() {
     velocidade.x = 0; 
     velocidade.y = 0;
 }
+
+void Jogador::executarOBJ() {
+    //Executa as funcoes de Jogador
+    move();
+}

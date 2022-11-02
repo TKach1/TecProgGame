@@ -14,3 +14,8 @@ void Inimigo::initOBJ() {
 	setBodySize(35.f, 50.f);
 	setOrigin();
 }
+
+void Inimigo::executarOBJ() {
+
+
+}
