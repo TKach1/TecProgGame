@@ -9,6 +9,10 @@ void Entidade::initOBJ() {
     
 }
 
+void Entidade::executarOBJ() {
+	//por padrao nao havera nada aqui
+}
+
 Entidade::Entidade(sf::RectangleShape& corpo) :window(nullptr), corpo(corpo) {
 
 }

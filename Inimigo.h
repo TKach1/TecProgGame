@@ -11,5 +11,6 @@ public:
     ~Inimigo();
 
     void initOBJ();
+    void executarOBJ();
 };
 

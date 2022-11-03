@@ -20,5 +20,6 @@ public:
 	void reset() { body.setPosition(getInicio()); }
 
 	void initOBJ();
+	void executarOBJ();
 };
 
