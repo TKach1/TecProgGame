@@ -10,7 +10,7 @@ public:
     Inimigo();
     ~Inimigo();
 
-    void initOBJ();
-    void executarOBJ();
+    virtual void initOBJ();
+    virtual void executarOBJ();
 };
 

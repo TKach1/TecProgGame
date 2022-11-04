@@ -81,7 +81,7 @@ void Jogador::Dano() {
 
 void Jogador::initOBJ() {
     body.setFillColor(sf::Color::Green);
-    setBodySize(35.f, 50.f);
+    setBodySize(25.f, 50.f);
     setOrigin();
     inicio = body.getPosition();
     jumpHeight = 500.f;

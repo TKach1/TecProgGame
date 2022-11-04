@@ -5,6 +5,7 @@
 Jogo::Jogo() : window(sf::VideoMode(900, 900), "high levels of Tomfoolery") {
     player1 = new Jogador;
     player1->setwindow(&window);
+    fase(player1, &window);
     executar();
 }
 
@@ -13,10 +14,9 @@ Jogo::~Jogo() {
 }
 
 void Jogo::executar() {
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+
     while (window.isOpen()) {
-        player1->move();
+       /* player1->move();
             sf::Event event;
             while (window.pollEvent(event))
             {
@@ -26,6 +26,7 @@ void Jogo::executar() {
 
             window.clear();
             player1->drawWindow();
-            window.display();
+            window.display();*/
+        fase.run();
     }
 }
