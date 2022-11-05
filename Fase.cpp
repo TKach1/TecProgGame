@@ -31,6 +31,17 @@ void Fase::run() {
 	player->drawWindow();
 	while (int i = 0; i <= listEn.getLen(); i++) {
 		listEn.getItem(i)->drawWindow();
+		if (listEn.getItem(i)->isHarmfull() == false) {
+			listEn.getItem(i)->getCollider().checkCollision((Entidade&)player->getCollider(), direction, 1.f);
+			player->emColisao(direction);
+		}
+		else {
+			if (listEn.getItem(i)->getCollider().checkCollision((Entidade&)player->getCollider(), direction, 1.f) == true) {
+				//causar dano & colidir(caso haja mais que 1 hp)
+				//metodo dano aqui
+				player->emColisao(direction);
+			}
+		}
 	}
 	window.display();
 }

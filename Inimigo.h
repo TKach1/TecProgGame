@@ -12,5 +12,6 @@ public:
 
     virtual void initOBJ();
     virtual void executarOBJ();
+    bool isHarmfull();
 };
 

@@ -10,6 +10,7 @@ private:
 	Plataforma* plat;
 	sf::RenderWindow* window;
 	sf::View view;
+	sf::Vector2f direction;
 	
 public:
 
