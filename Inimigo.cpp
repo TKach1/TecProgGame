@@ -19,3 +19,8 @@ void Inimigo::executarOBJ() {
 
 
 }
+
+void Inimigo::isHarmfull() {
+	//inimigos sempre serao danosos
+	return true;
+}
