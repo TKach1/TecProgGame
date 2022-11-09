@@ -20,7 +20,7 @@ void Inimigo::executarOBJ() {
 
 }
 
-void Inimigo::isHarmfull() {
+bool Inimigo::isHarmfull() { 
 	//inimigos sempre serao danosos
 	return true;
 }

@@ -12,7 +12,7 @@ public:
 	void setpProx(Elemento<TE>* x) { this->pProx = x; }
 	void setItem(TE* it) { this->item = it; }
 	Elemento<TE>* getpProx() { return pProx; }
-	TE* getitem() { return item; }
+	TE* getitem() {  return item; }
 
 };
 

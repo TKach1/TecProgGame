@@ -22,6 +22,10 @@ Entidade::Entidade() : window(nullptr), corpo(body)
 
 }
 
+void Entidade::setPosition(float x, float y) {
+	body.setPosition(sf::Vector2f(x, y));
+}
+
 bool Entidade::checkCollision(Entidade& other, sf::Vector2f& direction, float pushValue)
 {
 	////pega as posicoes dos objetos e a metade do tamanho deles(afinal sao cubos)

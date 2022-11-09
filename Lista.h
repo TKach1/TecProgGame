@@ -17,11 +17,11 @@ public:
 		if (pos == 0) {
 			return temp->getitem();
 		}
-		for (int i = 0; i < pos; i++) {
+		for (int i = 0; i < pos-1; i++) {
 			temp = temp->getpProx();
 		}
-		return temp->getitem();
 
+		return temp->getitem();
 	}
 
 	void push(TL* it) {

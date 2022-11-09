@@ -8,9 +8,9 @@ private:
 
 	sf::RenderWindow window;
 	Jogador* player1;
-	Fase fase;
+	//Fase fase;
 	//ListaEntidades* LEn;
-	//Fase* fase;
+	Fase* fase;
 public:
 	Jogo();
 	~Jogo();

@@ -16,6 +16,7 @@ public:
 	void setBodySize(float x, float y) { body.setSize(sf::Vector2f(x, y)); }
 	void setOrigin() { body.setOrigin(body.getSize() / 2.f); }
 	void applyGravity() { body.move(sf::Vector2f(0.f, 0.5f)); }
+	void setPosition(float x, float y);
 
 	virtual void initOBJ();
 	virtual void executarOBJ();
