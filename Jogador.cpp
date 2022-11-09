@@ -15,6 +15,7 @@ void Jogador::move() {
     //"atrito" do personagem
     velocidade.x *= 0.85f;
 
+
     //movimentos
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         velocidade.x = 0.7f;
@@ -87,7 +88,7 @@ void Jogador::initOBJ() {
     setBodySize(25.f, 50.f);
     setOrigin();
     inicio = body.getPosition();
-    jumpHeight = 5000.f;
+    jumpHeight = 500.f;
     podePular = false;
     vidas = 3;
     jumpTimer = 0;
@@ -97,7 +98,7 @@ void Jogador::initOBJ() {
     espadaX = 35.0f;
     espada.setOrigin();
     espada.setBodySize(40.0f, 5.0f);
-    espada.setPosition(inicio.x+espadaX, inicio.y);
+    espada.setPosition(inicio.x+espadaX + 0.1f, inicio.y + 0.1f);
 }
 
 void Jogador::executarOBJ() {

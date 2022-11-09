@@ -21,7 +21,7 @@ void Fase::initFase1(Jogador* play, sf::RenderWindow* _window) {
 		listEn.push(plat);
 	}
 
-	canhao = new Canhao(140.f, 480.f);
+	canhao = new Canhao(140.f, 500.f - 17.5f -25.f);
 	canhao->setPlayer(player);
 	canhao->setwindow(window);
 	//canhao->setEnabled(false); //para "destruir" os inimigos 
