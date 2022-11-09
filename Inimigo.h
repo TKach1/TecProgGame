@@ -1,7 +1,7 @@
 #pragma once
-#include "Entidade.hpp"
+#include "Personagem.hpp"
 class Inimigo :
-    public Entidade
+    public Personagem
 {
 private:
 

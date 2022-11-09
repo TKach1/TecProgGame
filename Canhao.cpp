@@ -12,7 +12,7 @@ Canhao::~Canhao() {
 
 void Canhao::initOBJ() {
 	body.setFillColor(sf::Color::Cyan);
-	setBodySize(30.f, 30.f);
+	setBodySize(50.f, 50.f);
 	setOrigin();
 }
 
@@ -37,7 +37,7 @@ void Canhao::setPlayer(Jogador* p)
 }
 
 void Canhao::executarOBJ() {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) { //sera alterado para cada x segundos atirar
 		atirar();
 	}
 }

@@ -18,9 +18,11 @@ void Jogador::move() {
     //movimentos
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         velocidade.x = 0.7f;
+        espadaX = abs(espadaX);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         velocidade.x = -0.7f;
+        espadaX = abs(espadaX) * -1;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular == true && jumpTimer > 200) {
         podePular = false;
@@ -28,15 +30,16 @@ void Jogador::move() {
         jumpTimer = 0;
         //aplica-se uma equacao
         //sfml trabalha com coordenadas y invertidas, negativo eh cima e positivo eh baixo
-        velocidade.y = -sqrtf(2.f * 0.00981f * jumpHeight);
+        velocidade.y = -sqrtf(2.f * 0.981f * jumpHeight);
     }
-    velocidade.y += 0.00981f;
+    //velocidade.y += 0.0981f;
+    velocidade.y += 0.5f;
     //cooldown pulo
     if (podePular == true && jumpTimer <= 200) {
         jumpTimer++;
     }
     body.move(sf::Vector2f(velocidade.x, velocidade.y));
-
+    espada.setPosition(getPosition().x + espadaX - 2, getPosition().y+(body.getSize().y/3));
 }
 
 void Jogador::emColisao(sf::Vector2f direction)
@@ -84,12 +87,17 @@ void Jogador::initOBJ() {
     setBodySize(25.f, 50.f);
     setOrigin();
     inicio = body.getPosition();
-    jumpHeight = 500.f;
+    jumpHeight = 5000.f;
     podePular = false;
     vidas = 3;
     jumpTimer = 0;
     velocidade.x = 0; 
     velocidade.y = 0;
+
+    espadaX = 35.0f;
+    espada.setOrigin();
+    espada.setBodySize(40.0f, 5.0f);
+    espada.setPosition(inicio.x+espadaX, inicio.y);
 }
 
 void Jogador::executarOBJ() {

@@ -52,9 +52,10 @@ bool Entidade::checkCollision(Entidade& other, sf::Vector2f& direction, float pu
 		pushValue = std::min(std::max(pushValue, 0.f), 1.f);
 
 		if (intersect.x > intersect.y) {
-			if (delta.x > 0.f) {
+			if (delta.x >= 0.f) {
 				mover(intersect.x * (1.f - pushValue), 0.f);
 				other.mover(-intersect.x * pushValue, 0.f);
+				printf("sada ");
 
 				direction.x = 1.f;
 				direction.y = 0.f;
@@ -68,17 +69,15 @@ bool Entidade::checkCollision(Entidade& other, sf::Vector2f& direction, float pu
 			}
 		}
 		else {
-			if (delta.y > 0.f) {
+			if (delta.y >= 0.f) {
 				mover(0.f, intersect.y * (1.f - pushValue));
 				other.mover(0.f, -intersect.y * pushValue);
-
 				direction.x = 0.f;
 				direction.y = 1.f;
 			}
 			else {
 				mover(0.f, -intersect.y * (1.f - pushValue));
 				other.mover(0.f, intersect.y * pushValue);
-
 				direction.x = 0.f;
 				direction.y = -1.f;
 			}
