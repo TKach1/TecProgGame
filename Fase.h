@@ -6,7 +6,7 @@
 
 class Fase {
 private:
-	Lista<Entidade> listEn;
+	Lista listEn;
 	Jogador* player;
 	Plataforma* plat;
 	Canhao* canhao;

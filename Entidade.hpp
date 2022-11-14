@@ -2,6 +2,7 @@
 #include"GerenGraf.h"
 class Entidade : public GerenGraf
 {
+
 protected:
 	//sf::RectangleShape body;
 	//sf::RectangleShape& corpo;

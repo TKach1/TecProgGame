@@ -2,18 +2,20 @@
 #include "Elemento.h"
 
 //Lista tirada dos videos disponibilizados no moodle
-template <class TL> class Lista
+
+//adaptada a mando do professor(pediu que percorresse dentro da lista, impossivel para listas template)
+class Lista
 {
 private:
-	Elemento<TL>* pPrim;
-	Elemento<TL>* pUlt;
+	Elemento* pPrim;
+	Elemento* pUlt;
 	int len;
 public:
 	Lista();
 	~Lista();
 	int getLen() { return len; }
-	TL* getItem(int pos) {
-		Elemento<TL>* temp = pPrim;
+	Entidade* getItem(int pos) {
+		Elemento* temp = pPrim;
 		if (pos == 0) {
 			return temp->getitem();
 		}
@@ -24,14 +26,40 @@ public:
 		return temp->getitem();
 	}
 
-	void push(TL* it) {
+	void percorrer(Jogador* player, sf::Vector2f direction) {
+		Elemento* temp = pPrim;
+		while (temp != nullptr) {
+			Personagem* b = dynamic_cast<Personagem*>((temp->getitem())); //casting
+			temp->getitem()->executarOBJ();
+			temp->getitem()->drawWindow();
+			if (temp->getitem()->isHarmfull() == false) {
+				temp->getitem()->getCollider().checkCollision((Entidade&)player->getCollider(), direction, 1.f);
+				player->emColisao(direction);
+			}
+			else {
+				if (temp->getitem()->getCollider().checkCollision((Entidade&)player->getCollider(), direction, 1.f) == true) {
+					//causar dano & colidir(caso haja mais que 1 hp)
+					//metodo dano aqui
+					player->emColisao(direction);
+				}
+			}
+			if (player->getEspada()->getCollider().checkCollision((Entidade&)temp->getitem()->getCollider(), direction, 0) == true) {
+				if (b) {
+					b->setEnabled(false);
+				}
+				temp = temp->getpProx();
+			}
+		}
+	}
+
+	void push(Entidade* it) {
 		if (pPrim == nullptr) {
-			pPrim = new Elemento<TL>;
+			pPrim = new Elemento;
 			pPrim->setItem(it);
 			pUlt = pPrim;
 		}
 		else {
-			Elemento<TL>* temp = new Elemento<TL>;
+			Elemento* temp = new Elemento;
 			temp->setItem(it);
 			pUlt->setpProx(temp);
 			pUlt = temp;
@@ -39,27 +67,24 @@ public:
 		len++;
 	}
 
-	void pop(TL* it);
+	void pop(Entidade* it);
 };
 
-template<class TL>
-inline Lista<TL>::Lista()
+Lista::Lista()
 {
 	pPrim = nullptr;
 	pUlt = nullptr;
 	len = 0;
 }
 
-template<class TL>
-inline Lista<TL>::~Lista()
+ Lista::~Lista()
 {
 }
 
-template<class TL>
-inline void Lista<TL>::pop(TL* it)
+void Lista::pop(Entidade* it)
 {
-	Elemento<TL>* temp = pPrim;
-	Elemento<TL>* tempAU = nullptr;
+	Elemento* temp = pPrim;
+	Elemento* tempAU = nullptr;
 	while (temp->getitem() != it) {
 		tempAU = temp;
 		temp = temp->getpProx();
