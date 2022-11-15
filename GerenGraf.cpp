@@ -43,7 +43,6 @@ bool GerenGraf::checkCollision(GerenGraf& other, sf::Vector2f& direction, float 
 			if (delta.x >= 0.f) {
 				mover(intersect.x * (1.f - pushValue), 0.f);
 				other.mover(-intersect.x * pushValue, 0.f);
-				printf("sada ");
 
 				direction.x = 1.f;
 				direction.y = 0.f;
