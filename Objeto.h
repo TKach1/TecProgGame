@@ -16,6 +16,8 @@ public:
 		setBodySize(defaultX, defaultY);
 	}
 
+	void setColor(sf::Color c){ body.setFillColor(c); }
+
 	virtual void executarOBJ() {}
 
 	virtual bool isHarmfull() { return _isHarmfull; }

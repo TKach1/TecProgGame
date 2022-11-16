@@ -2,11 +2,13 @@
 #include"GerenGraf.h"
 class Entidade : public GerenGraf
 {
-
+private:
+	bool _isSolid;
 protected:
 	//sf::RectangleShape body;
 	//sf::RectangleShape& corpo;
 	//sf::RenderWindow* window;
+	sf::Texture texture;
 public:
 	//Entidade(sf::RectangleShape& corpo);
 	Entidade();
@@ -18,7 +20,8 @@ public:
 	//void setOrigin() { body.setOrigin(body.getSize() / 2.f); }
 	//void applyGravity() { body.move(sf::Vector2f(0.f, 0.5f)); }
 	//void setPosition(float x, float y);
-
+	bool isSolid() { return _isSolid; }
+	void setSolid(bool s) { _isSolid = s; }
 	virtual void initOBJ();
 	virtual void executarOBJ();
 	virtual bool isHarmfull() { return false; }

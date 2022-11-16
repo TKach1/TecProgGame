@@ -7,6 +7,8 @@ using std::time;
 
 Fase::Fase(Jogador* play, sf::RenderWindow* _window) {
 	window = _window;
+	view.setSize((sf::Vector2f(0.0f, 0.0f), sf::Vector2f(900.0f, 900.0f)));
+	window->setView(view);
 	srand(time(NULL));
 	initFase1(play, window);
 }
@@ -14,10 +16,21 @@ Fase::~Fase() {
 	deleteFase();
 }
 void Fase::initFase1(Jogador* play, sf::RenderWindow* _window) {
+	/*sf::Texture texture;
+	texture.loadFromFile("./Texturas/background.jpg");
+	Entidade *bg;
+	bg = new Entidade;
+	sf::Vector2u size = texture.getSize();
+	bg->setTexture(&texture);
+	bg->setOrigin();
+	bg->setBodySize(size.x, size.y);
+	bg->setwindow(window);
+	listEn.push(bg);*/
+
 	player = play;
 	player->setwindow(window);
 	player->getEspada()->setwindow(window);
-	player->setPosition(0.f, 0.f);
+	player->setPosition(50.f, 50.f);
 	listEn.push(player->getEspada());
 
 	for (int i = 0; i < 70; i++) {
@@ -28,7 +41,7 @@ void Fase::initFase1(Jogador* play, sf::RenderWindow* _window) {
 		if (i % 10 == 0) {
 			//cria uma chance de certas plataformas terem canhoes em cima dela
 			if (rand() % 3 == 0) {
-				canhao = new Canhao(35.f * i, 425.f - 17.5f - 25.f);
+				canhao = new Canhao((35.f * i)+70.f, 425.f - 17.5f - 25.f);
 				canhao->setPlayer(player);
 				canhao->setwindow(window);
 				listEn.push(canhao);
@@ -89,6 +102,15 @@ void Fase::run() {
 	//		}
 	//	}
 	//}
+	sf::Vector2f cameraPos;
+	if (player->getPosition().x < 450.0f) {
+		cameraPos = sf::Vector2f(450.0f, 450.0f);
+	}
+	else {
+		cameraPos = sf::Vector2f(player->getPosition().x, 450.0f);
+	}
+	view.setCenter(cameraPos);
+	window->setView(view);
 	window->display();
 }
 

@@ -103,5 +103,14 @@
     <Image Include="MenuRelated\menu-sci-fi-game.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
+    <Image Include="Texturas\samubit_-_Copia.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Texturas\samubit.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
+    <Image Include="Texturas\bricks.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
   </ItemGroup>
 </Project>

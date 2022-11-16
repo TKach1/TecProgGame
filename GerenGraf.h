@@ -16,6 +16,10 @@ public:
 	void setBodySize(float x, float y) { body.setSize(sf::Vector2f(x, y)); }
 	void setOrigin() { body.setOrigin(body.getSize() / 2.f); }
 	void applyGravity() { body.move(sf::Vector2f(0.f, 0.5f)); }
+	void setTexture(sf::Texture *t) { body.setTexture(t); }
+	void setTextureRect(sf::IntRect r) { body.setTextureRect(r);}
+	void setScale(sf::Vector2f s) { body.setScale(s); }
+	void scale(sf::Vector2f s) { body.scale(s); }
 	bool checkCollision(GerenGraf& other, sf::Vector2f& direction, float pushValue);
 	sf::Vector2f getPosition() { return corpo.getPosition(); }
 	sf::Vector2f getHalfSize() { return corpo.getSize() / 2.f; }

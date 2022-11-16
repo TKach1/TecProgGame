@@ -17,7 +17,7 @@ void Entidade::executarOBJ() {
 
 Entidade::Entidade()
 {
-
+	_isSolid = true;
 }
 
 //void Entidade::setPosition(float x, float y) {

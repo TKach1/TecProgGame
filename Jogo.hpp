@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp> 
 #include "Fase.h"
+#include "Jogador.hpp"
 
 class Jogo {
 private:

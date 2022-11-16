@@ -1,5 +1,6 @@
 #include "menu.hpp"
-
+#include "Jogo.hpp"
+//Menu com base no vídeo: https://www.youtube.com/watch?v=h8-Q4eu3Qt4
 Menu::Menu(){
   window = new sf::RenderWindow();
   winclose = new sf::RectangleShape();
@@ -32,16 +33,16 @@ void Menu::set_values(){
   pos_mouse = {0,0};
   mouse_coord = {0, 0};
 
-  options = {"War Game", "Play", "Options", "About", "Quit"};
+  options = {"Vampire's Tale", "1 Jogador", "2 Jogadores", "Sobre", "Sair"};
   texts.resize(5);
-  coords = {{590,40},{610,191},{590,282},{600,370},{623,457}};
-  sizes = {20,28,24,24,24};
+  coords = {{558,40},{590,195},{575,282},{605,370},{623,457}};
+  sizes = {18,20,18,24,24};
 
   for (std::size_t i{}; i < texts.size(); ++i){
    texts[i].setFont(*font); 
    texts[i].setString(options[i]); 
    texts[i].setCharacterSize(sizes[i]);
-   texts[i].setOutlineColor(sf::Color::Black);
+   texts[i].setOutlineColor(sf::Color::Red);
    texts[i].setPosition(coords[i]);
   }
   texts[1].setOutlineThickness(4);
@@ -89,6 +90,10 @@ void Menu::loop_events(){
       theselect = true;
       if( pos == 4){
         window->close();
+      }
+      if (pos == 1) {
+          window->close();
+          Jogo jogo;
       }
       std::cout << options[pos] << '\n';
     }

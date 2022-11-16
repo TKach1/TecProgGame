@@ -11,6 +11,7 @@ private:
 	int vidas, jumpTimer;
 	Objeto espada;
 	float espadaX;
+	bool isFaced;
 	
 public:
 	void move();

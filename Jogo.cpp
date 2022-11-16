@@ -6,6 +6,7 @@ Jogo::Jogo() : window(sf::VideoMode(900, 900), "high levels of Tomfoolery") {
     player1 = new Jogador;
     player1->setwindow(&window);
     fase = new Fase(player1, &window);
+    
     executar();
 }
 
