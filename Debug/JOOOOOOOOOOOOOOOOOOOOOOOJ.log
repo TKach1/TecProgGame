@@ -1,17 +1,2 @@
-﻿  Canhao.cpp
-C:\Users\wesle\source\repos\TecProgGame\Canhao.cpp(23,16): warning C4244: '=': conversão de 'T' para 'int', possível perda de dados
-          with
-          [
-              T=float
-          ]
-Jogo.obj : error LNK2005: "public: __thiscall Elemento::Elemento(void)" (??0Elemento@@QAE@XZ) já definida no Fase.obj
-Jogo.obj : error LNK2005: "public: __thiscall Lista::Lista(void)" (??0Lista@@QAE@XZ) já definida no Fase.obj
-Jogo.obj : error LNK2005: "public: __thiscall Elemento::~Elemento(void)" (??1Elemento@@QAE@XZ) já definida no Fase.obj
-Jogo.obj : error LNK2005: "public: __thiscall Lista::~Lista(void)" (??1Lista@@QAE@XZ) já definida no Fase.obj
-Jogo.obj : error LNK2005: "public: void __thiscall Lista::pop(class Entidade *)" (?pop@Lista@@QAEXPAVEntidade@@@Z) já definida no Fase.obj
-main.obj : error LNK2005: "public: __thiscall Elemento::Elemento(void)" (??0Elemento@@QAE@XZ) já definida no Fase.obj
-main.obj : error LNK2005: "public: __thiscall Lista::Lista(void)" (??0Lista@@QAE@XZ) já definida no Fase.obj
-main.obj : error LNK2005: "public: __thiscall Elemento::~Elemento(void)" (??1Elemento@@QAE@XZ) já definida no Fase.obj
-main.obj : error LNK2005: "public: __thiscall Lista::~Lista(void)" (??1Lista@@QAE@XZ) já definida no Fase.obj
-main.obj : error LNK2005: "public: void __thiscall Lista::pop(class Entidade *)" (?pop@Lista@@QAEXPAVEntidade@@@Z) já definida no Fase.obj
-C:\Users\wesle\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe : fatal error LNK1169: encontrados um ou mais símbolos múltiplos definidos
+﻿  menu.cpp
+  JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\wesle\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe

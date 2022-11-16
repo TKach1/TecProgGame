@@ -37,24 +37,17 @@ private:
 	Elemento* pProx;
 	Entidade* item;
 public:
-	Elemento();
-	~Elemento();
+	Elemento() {
+		pProx = nullptr;
+		item = nullptr;
+	}
+	~Elemento()
+	{
+
+	}
 	void setpProx(Elemento* x) { pProx = x; }
 	void setItem(Entidade* it) { item = it; }
 	Elemento* getpProx() { return pProx; }
 	Entidade* getitem() {  return item; }
 
 };
-
-
-Elemento::Elemento()
-{
-	pProx = nullptr;
-	item = nullptr;
-}
-
-
-Elemento::~Elemento()
-{
-
-}

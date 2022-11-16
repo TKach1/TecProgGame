@@ -1,6 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "Jogador.hpp"
+#include <SFML/Graphics.hpp> 
 #include "Fase.h"
 
 class Jogo {

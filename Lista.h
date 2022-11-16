@@ -11,8 +11,14 @@ private:
 	Elemento* pUlt;
 	int len;
 public:
-	Lista();
-	~Lista();
+	Lista() {
+		pPrim = nullptr;
+		pUlt = nullptr;
+		len = 0;
+	}
+	~Lista() {
+
+	}
 	int getLen() { return len; }
 	Entidade* getItem(int pos) {
 		Elemento* temp = pPrim;
@@ -67,39 +73,24 @@ public:
 		len++;
 	}
 
-	void pop(Entidade* it);
+	void pop(Entidade* it) {
+		Elemento* temp = pPrim;
+		Elemento* tempAU = nullptr;
+		while (temp->getitem() != it) {
+			tempAU = temp;
+			temp = temp->getpProx();
+		}
+		if (temp == pPrim) {
+			pPrim = temp->getpProx();
+		}
+		else if (temp == pUlt) {
+			tempAU->setpProx(nullptr);
+			pUlt = tempAU;
+		}
+		else {
+			tempAU->setpProx(temp->getpProx());
+		}
+		delete temp;
+		len--;
+	}
 };
-
-Lista::Lista()
-{
-	pPrim = nullptr;
-	pUlt = nullptr;
-	len = 0;
-}
-
- Lista::~Lista()
-{
-}
-
-void Lista::pop(Entidade* it)
-{
-	Elemento* temp = pPrim;
-	Elemento* tempAU = nullptr;
-	while (temp->getitem() != it) {
-		tempAU = temp;
-		temp = temp->getpProx();
-	}
-	if (temp == pPrim) {
-		pPrim = temp->getpProx();
-	}
-	else if (temp == pUlt) {
-		tempAU->setpProx(nullptr);
-		pUlt = tempAU;
-	}
-	else {
-		tempAU->setpProx(temp->getpProx());
-	}
-	delete temp;
-	len--;
-}
-

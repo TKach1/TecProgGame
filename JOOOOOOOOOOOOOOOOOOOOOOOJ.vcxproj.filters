@@ -48,6 +48,9 @@
     <ClCompile Include="GerenGraf.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.hpp">
@@ -89,5 +92,16 @@
     <ClInclude Include="GerenGraf.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="menu.hpp">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="MenuRelated\ethn.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MenuRelated\menu-sci-fi-game.png">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
   </ItemGroup>
 </Project>
