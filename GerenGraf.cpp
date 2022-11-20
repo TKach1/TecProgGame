@@ -1,11 +1,11 @@
 #include "GerenGraf.h"
 
-GerenGraf::GerenGraf(sf::RectangleShape& corpo) : window(nullptr), corpo(corpo)
-{
-}
-GerenGraf::GerenGraf() : window(nullptr), corpo(body) {
-
-}
+//GerenGraf::GerenGraf(sf::RectangleShape& corpo) : window(nullptr), corpo(corpo)
+//{
+//}
+//GerenGraf::GerenGraf() : window(nullptr), corpo(body) {
+//
+//}
 
 GerenGraf::~GerenGraf()
 {
@@ -106,3 +106,53 @@ sf::Vector2f GerenGraf::getDelta(GerenGraf& other) {
 	delta.y = deltaY;
 	return delta;
 }
+
+void GerenGraf::imprime(int id, float x, float y) {
+	if (id == 1) { //Jogador
+		setBodySize(35.f, 35.f);
+		setOrigin();
+		setPosition(x, y);
+		//printf("floats: %f, %f -=- ", x, y);
+		setScale(sf::Vector2f(2.f, 2.f));
+		sf::Vector2f cameraPos;
+		if (x < 450.0f) {
+			cameraPos = sf::Vector2f(450.0f, 450.0f);
+		}
+		else {
+			cameraPos = sf::Vector2f(x, 450.0f);
+		}
+		view->setCenter(cameraPos);
+		body.setFillColor(sf::Color::White);
+		sf::Vector2u TextureSize = texturaPlayer.getSize();
+		TextureSize.x /= 3;
+		TextureSize.y /= 11;
+		setTextureRect(sf::IntRect(TextureSize.x * 2, (TextureSize.y * 6) + 15, TextureSize.x, TextureSize.y));
+		setTexture(&texturaPlayer);
+	}
+	else if (id == 2) {
+		setBodySize(50.f, 50.f);
+		setOrigin();
+		setPosition(x, y);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::Blue);
+		setTexture(NULL);
+	}
+	else if (id == 3) {
+		setBodySize(35.f, 35.f);
+		setOrigin();
+		setPosition(x, y);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::Red);
+		sf::Vector2u TextureSize = texturaPlat.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaPlat);
+	}
+	drawWindow();
+	setScale(sf::Vector2f(1.f, 1.f));
+}
+
+
+GerenGraf* GerenGraf::instance = NULL;
+sf::RenderWindow* GerenGraf::window = new sf::RenderWindow;
+sf::View* GerenGraf::view = new sf::View;
+sf::Event GerenGraf::event;

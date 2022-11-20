@@ -2,11 +2,12 @@
 
 
 void Plataforma::initOBJ() {
-	body.setFillColor(sf::Color::Red);
+	id = 3;
+	/*body.setFillColor(sf::Color::Red);
 	setBodySize(defaultX, defaultY);
 	setOrigin();
 
-	setTexture(&texture);
+	setTexture(&texture);*/
 }
 void Plataforma::executarOBJ() {
 

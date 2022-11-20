@@ -2,10 +2,10 @@
 #include <iostream>
 
 
-Jogo::Jogo() : window(sf::VideoMode(900, 900), "high levels of Tomfoolery") {
+Jogo::Jogo() {
     player1 = new Jogador;
-    player1->setwindow(&window);
-    fase = new Fase(player1, &window);
+    //player1->setwindow(&window);
+    fase = new Fase(player1);
     
     executar();
 }
@@ -15,19 +15,9 @@ Jogo::~Jogo() {
 }
 
 void Jogo::executar() {
-
-    while (window.isOpen()) {
-       /* player1->move();
-            sf::Event event;
-            while (window.pollEvent(event))
-            {
-                if (event.type == sf::Event::Closed)
-                    window.close();
-            }
-
-            window.clear();
-            player1->drawWindow();
-            window.display();*/
+    GerenGraf::getWindow()->create(sf::VideoMode(900, 900), "My window");
+    while (GerenGraf::getWindow()->isOpen()) {
+        GerenGraf::run();
         fase->run();
     }
 }

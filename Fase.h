@@ -10,15 +10,15 @@ private:
 	Jogador* player;
 	Plataforma* plat;
 	Canhao* canhao;
-	sf::RenderWindow* window;
+	/*sf::RenderWindow* window;
 	sf::View view;
-	sf::Vector2f direction;
+	sf::Vector2f direction;*/
 	
 public:
 
-	Fase(Jogador* play, sf::RenderWindow* _window);
+	Fase(Jogador* play);
 	~Fase();
-	void initFase1(Jogador* play, sf::RenderWindow* _window);
+	void initFase1(Jogador* play);
 	void run();
 	void deleteFase();
 };

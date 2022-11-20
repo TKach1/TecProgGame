@@ -20,11 +20,11 @@ public:
 	~Jogador();
 
 	Objeto* getEspada() { return &espada; }
-	sf::Vector2f getPosition() { return body.getPosition(); }
+	float getPositionx() { return px; }
 	void emColisao(sf::Vector2f direction);
 	sf::Vector2f getInicio();
 	void Dano();
-	void reset() { body.setPosition(getInicio()); }
+	void reset() {  }
 
 	void initOBJ();
 	void executarOBJ();

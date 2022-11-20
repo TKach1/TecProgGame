@@ -32,7 +32,7 @@ public:
 		return temp->getitem();
 	}
 
-	void percorrer(Jogador* player, sf::Vector2f direction) {
+	void percorrer(Jogador* player) {
 		float f = 1.f;
 		Elemento* temp = pPrim;
 		while (temp != nullptr) {
@@ -50,23 +50,23 @@ public:
 				f = 0.0f;
 			}
 			temp->getitem()->executarOBJ();
-			temp->getitem()->drawWindow();
-			if (temp->getitem()->isHarmfull() == false) {
-				temp->getitem()->getCollider().checkCollision((Entidade&)player->getCollider(), direction, f);
-				player->emColisao(direction);
-			}
-			else {
-				if (temp->getitem()->getCollider().checkCollision((Entidade&)player->getCollider(), direction, f) == true) {
-					//causar dano & colidir(caso haja mais que 1 hp)
-					//metodo dano aqui
-					player->emColisao(direction);
-				}
-			}
-			if (player->getEspada()->getCollider().checkCollision((Entidade&)temp->getitem()->getCollider(), direction, 0) == true) {
-				if (b) {
-					b->setEnabled(false);
-				}
-			}
+			temp->getitem()->print();
+			//if (temp->getitem()->isharmfull() == false) {
+			//	temp->getitem()->getcollider().checkcollision((entidade&)player->getcollider(), direction, f);
+			//	player->emcolisao(direction);
+			//}
+			//else {
+			//	if (temp->getitem()->getcollider().checkcollision((entidade&)player->getcollider(), direction, f) == true) {
+			//		//causar dano & colidir(caso haja mais que 1 hp)
+			//		//metodo dano aqui
+			//		player->emcolisao(direction);
+			//	}
+			//}
+			//if (player->getespada()->getcollider().checkcollision((entidade&)temp->getitem()->getcollider(), direction, 0) == true) {
+			//	if (b) {
+			//		b->setenabled(false);
+			//	}
+			//}
 			temp = temp->getpProx();
 		}
 	}

@@ -15,7 +15,7 @@ void Entidade::executarOBJ() {
 //Entidade::Entidade(sf::RectangleShape& corpo) :window(nullptr), corpo(corpo) {
 //}
 
-Entidade::Entidade()
+Entidade::Entidade() : Ente(id)
 {
 	_isSolid = true;
 }

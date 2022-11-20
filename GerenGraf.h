@@ -2,16 +2,35 @@
 #include <SFML/Graphics.hpp>
 class GerenGraf
 {
+private:
+	static sf::Event event;
+	static GerenGraf* instance;
+	GerenGraf() : corpo(body) {
+		texturaPlayer.loadFromFile("./Texturas/samubit.png");
+		printf("texturas loaded...");
+
+		texturaPlat.loadFromFile("./Texturas/bricks.png");
+	}
 protected:
 	sf::RectangleShape body;
 	sf::RectangleShape& corpo;
-	sf::RenderWindow* window;
+	static sf::RenderWindow* window;
+	static sf::View* view;
+
+	sf::Texture texturaPlayer;
+	sf::Texture texturaPlat;
+	sf::Texture texturaCanhao;
 public:
-	GerenGraf(sf::RectangleShape& corpo);
-	GerenGraf();
+	static GerenGraf* GetInstance() {
+		if (instance == NULL) {
+			instance = new GerenGraf();
+		}
+		return instance;
+	}
+
 	~GerenGraf();
-	GerenGraf getCollider() { return GerenGraf(corpo); }
-	void setwindow(sf::RenderWindow* w) { this->window = w; };
+	sf::RectangleShape getCollider() { return corpo; }
+	//void setwindow(sf::RenderWindow* w) { window = &w; };
 	void drawWindow() { window->draw(body); }
 	void setBodySize(float x, float y) { body.setSize(sf::Vector2f(x, y)); }
 	void setOrigin() { body.setOrigin(body.getSize() / 2.f); }
@@ -27,5 +46,21 @@ public:
 	sf::Vector2f getIntersect(GerenGraf& other);
 	sf::Vector2f getDelta(GerenGraf& other);
 	void setPosition(float x, float y);
+
+	static sf::RenderWindow* getWindow() { return window; }
+
+	void imprime(int id, float x, float y);
+	static void run() {
+		view->setSize((sf::Vector2f(0.0f, 0.0f), sf::Vector2f(900.0f, 900.0f)));
+		while (window->pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed) {
+				window->close();
+			}
+		}
+		window->setView(*view);
+		window->display();
+		window->clear();
+	}
 };
 

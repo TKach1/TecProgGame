@@ -1,3 +1,6 @@
 ﻿  Fase.cpp
 C:\Users\wesle\source\repos\TecProgGame\Fase.cpp(12,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Jogo.cpp
+  menu.cpp
+  Gerando Código...
   JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\wesle\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe

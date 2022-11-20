@@ -1,6 +1,7 @@
 #pragma once
-#include"GerenGraf.h"
-class Entidade : public GerenGraf
+//#include "GerenGraf.h"
+#include "Ente.hpp"
+class Entidade : public Ente
 {
 private:
 	bool _isSolid;

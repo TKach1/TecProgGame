@@ -1,8 +1,9 @@
 #include "Canhao.hpp"
 
 Canhao::Canhao(float x, float y) {
+	id = 2;
+	px = x, py = y;
 	bola = new Projetil(sf::Vector2f(x, y));
-	body.setPosition(sf::Vector2f(x, y));
 	initOBJ();
 }
 
@@ -11,16 +12,14 @@ Canhao::~Canhao() {
 }
 
 void Canhao::initOBJ() {
-	body.setFillColor(sf::Color::Cyan);
-	setBodySize(50.f, 50.f);
-	setOrigin();
+
 }
 
 void Canhao::atirar() {
 	int temp = 0;
-	sf::Vector2f pPos = getPosition();
-	sf::Vector2f pos = player->getPosition();
-	temp = pPos.x - pos.x;
+	float pPos = 0; //sf::Vector2f(x, y)
+	float pos = player->getPositionx();
+	temp = pPos - pos;
 
 	if (temp >= 0) {
 		bola->initOBJ(-1);

@@ -12,11 +12,9 @@ public:
 		defaultX = 35.f;
 		defaultY = 35.f;
 		_isHarmfull = false;
-		body.setFillColor(sf::Color::Red);
-		setBodySize(defaultX, defaultY);
 	}
 
-	void setColor(sf::Color c){ body.setFillColor(c); }
+	void setColor(sf::Color c){  }
 
 	virtual void executarOBJ() {}
 
