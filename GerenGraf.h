@@ -39,12 +39,7 @@ public:
 	void setTextureRect(sf::IntRect r) { body.setTextureRect(r);}
 	void setScale(sf::Vector2f s) { body.setScale(s); }
 	void scale(sf::Vector2f s) { body.scale(s); }
-	bool checkCollision(GerenGraf& other, sf::Vector2f& direction, float pushValue);
 	sf::Vector2f getPosition() { return corpo.getPosition(); }
-	sf::Vector2f getHalfSize() { return corpo.getSize() / 2.f; }
-	void mover(float dx, float dy) { corpo.move(dx, dy); }
-	sf::Vector2f getIntersect(GerenGraf& other);
-	sf::Vector2f getDelta(GerenGraf& other);
 	void setPosition(float x, float y);
 
 	static sf::RenderWindow* getWindow() { return window; }

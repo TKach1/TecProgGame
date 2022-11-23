@@ -4,7 +4,7 @@
 class Jogador : public Personagem
 {
 private:
-	sf::Vector2f velocidade;
+	float vx, vy;
 	sf::Vector2f inicio;
 	bool podePular;
 	float jumpHeight;
@@ -21,7 +21,7 @@ public:
 
 	Objeto* getEspada() { return &espada; }
 	float getPositionx() { return px; }
-	void emColisao(sf::Vector2f direction);
+	void emColisao(float dx, float dy);
 	sf::Vector2f getInicio();
 	void Dano();
 	void reset() {  }

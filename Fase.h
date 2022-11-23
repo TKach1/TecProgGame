@@ -2,6 +2,7 @@
 #include "Plataforma.h"
 #include "Jogador.hpp"
 #include "ListaEntidades.hpp"
+#include "GerenColisao.hpp"
 #include "Canhao.hpp"
 
 class Fase {
@@ -16,6 +17,7 @@ private:
 	sf::Vector2f direction;*/
 	
 public:
+
 
 	Fase(Jogador* play);
 	~Fase();

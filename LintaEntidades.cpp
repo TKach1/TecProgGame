@@ -11,6 +11,7 @@ ListaEntidades::~ListaEntidades() {
 
 void ListaEntidades::percorrer(Jogador* player) {
 	float f = 1.f;
+	float dy = 0, dx = 0;
 	Elemento* temp = lista.getFirst();
 	while (temp != nullptr) {
 		Personagem* b = dynamic_cast<Personagem*>((temp->getitem())); //casting
@@ -27,23 +28,23 @@ void ListaEntidades::percorrer(Jogador* player) {
 			f = 0.0f;
 		}
 		temp->getitem()->executarOBJ();
+		if (temp->getitem()->isHarmfull() == false) {
+			GerenColisao::checkCollision(*player, (Entidade&)*(temp->getitem()), dx, dy, f);
+			player->emColisao(dx, dy);
+		}
+		else {
+			if (GerenColisao::checkCollision(*player, (Entidade&)*(temp->getitem()), dx, dy, f) == true) {
+				//causar dano & colidir(caso haja mais que 1 hp)
+				//metodo dano aqui
+				player->emColisao(dx, dy);
+			}
+		}
+		if (GerenColisao::checkCollision(*player, (Entidade&)*(temp->getitem()), dx, dy, 0.0f) == true) {
+			if (b) {
+				b->setEnabled(false);
+			}
+		}
 		temp->getitem()->print();
-		//if (temp->getitem()->isharmfull() == false) {
-		//	temp->getitem()->getcollider().checkcollision((entidade&)player->getcollider(), direction, f);
-		//	player->emcolisao(direction);
-		//}
-		//else {
-		//	if (temp->getitem()->getcollider().checkcollision((entidade&)player->getcollider(), direction, f) == true) {
-		//		//causar dano & colidir(caso haja mais que 1 hp)
-		//		//metodo dano aqui
-		//		player->emcolisao(direction);
-		//	}
-		//}
-		//if (player->getespada()->getcollider().checkcollision((entidade&)temp->getitem()->getcollider(), direction, 0) == true) {
-		//	if (b) {
-		//		b->setenabled(false);
-		//	}
-		//}
 		temp = temp->getpProx();
 	}
 }

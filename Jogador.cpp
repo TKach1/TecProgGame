@@ -14,12 +14,12 @@ Jogador::~Jogador() {
 }
 void Jogador::move() {
     //"atrito" do personagem
-    velocidade.x *= 0.85f;
+    vx *= 0.85f;
 
 
     //movimentos
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        velocidade.x = 0.7f;
+        vx = 0.7f;
         espadaX = abs(espadaX);
         if (!isFaced) {
             //scale(sf::Vector2f(-1.0f, 1.0f));
@@ -28,7 +28,7 @@ void Jogador::move() {
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         if (px >= 0) {
-            velocidade.x = -0.7f;
+            vx = -0.7f;
             espadaX = abs(espadaX) * -1;
         }
         if (isFaced) {
@@ -42,43 +42,43 @@ void Jogador::move() {
         jumpTimer = 0;
         //aplica-se uma equacao
         //sfml trabalha com coordenadas y invertidas, negativo eh cima e positivo eh baixo
-        velocidade.y = -sqrtf(2.f * 0.981f * jumpHeight);
+        vy = -sqrtf(2.f * 0.981f * jumpHeight);
     }
     //velocidade.y += 0.0981f;
-    //velocidade.y += 0.5f;
+    vy += 0.00981f;
     //cooldown pulo
     if (podePular == true && jumpTimer <= 200) {
         jumpTimer++;
     }
 
     //body.move(sf::Vector2f(velocidade.x, velocidade.y));
-    px += velocidade.x;
-    py += velocidade.y;
+    px += vx;
+    py += vy;
     //velocidade.x = 0.f;
     //velocidade.y = 0.f;
     //espada.setPosition(getPosition().x + espadaX + 12, getPosition().y+(body.getSize().y/3));
 }
 
-void Jogador::emColisao(sf::Vector2f direction)
+void Jogador::emColisao(float dx, float dy)
 {
     podePular = false;
-    if (direction.y < 0.f) {
+    if (dy > 0.f) {
         //Colisao em baixo
-        velocidade.y = 0.f;
+        vy = 0.f;
         podePular = true;
 
     }
-    else if (direction.y > 0.f) {
+    else if (dy < 0.f) {
         //Colisao em cima
-        velocidade.y = 0.f;
+        vy = 0.f;
     }
-    if (direction.x < 0.f) {
+    if (dx < 0.f) {
         //Colisao na esquerda
-        velocidade.x = 0.f;
+        vx = 0.f;
     }
-    else if (direction.x < 0.f) {
+    else if (dx < 0.f) {
         //Colisao na direita
-        velocidade.x = 0.f;
+        vx = 0.f;
     }
 
 }
@@ -106,13 +106,13 @@ void Jogador::initOBJ() {
     //inicio = body.getPosition();
     px = 50.f;
     py = 50.f;
-    jumpHeight = 5000.0f;
+    jumpHeight = 1.0f;
     podePular = false;
     isFaced = true;
     vidas = 3;
     jumpTimer = 0;
-    velocidade.x = 0.f; 
-    velocidade.y = 0.f;
+    vx = 0.f; 
+    vy = 0.f;
     
     espada.setColor(sf::Color(0, 0, 0, 0));
     //espada.setOrigin();
