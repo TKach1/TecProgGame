@@ -16,7 +16,6 @@ void Jogador::move() {
     //"atrito" do personagem
     velocidade.x *= 0.85f;
 
-
     //movimentos
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         velocidade.x = 0.7f;

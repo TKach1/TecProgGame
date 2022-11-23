@@ -1,6 +1,7 @@
 #pragma once
 //#include <SFML/Graphics.hpp> 
-#include "Fase.h"
+#include "Fase1.h"
+#include"Fase2.h"
 #include "Jogador.hpp"
 
 class Jogo {
@@ -10,7 +11,8 @@ private:
 	Jogador* player1;
 	//Fase fase;
 	//ListaEntidades* LEn;
-	Fase* fase;
+	Fase1* fase1;
+	Fase2* fase2;
 public:
 	Jogo();
 	~Jogo();

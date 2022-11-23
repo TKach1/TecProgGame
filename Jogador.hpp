@@ -24,7 +24,7 @@ public:
 	void emColisao(sf::Vector2f direction);
 	sf::Vector2f getInicio();
 	void Dano();
-	void reset() {  }
+	void reset() { px = getInicio().x; }
 
 	void initOBJ();
 	void executarOBJ();
