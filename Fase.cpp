@@ -31,7 +31,7 @@ void Fase::initFase1(Jogador* play) {
 	//player->setwindow(window);
 	//player->getEspada()->setwindow(window);
 	//player->setPosition(50.f, 50.f);
-	listEn.push(player->getEspada());
+	//listEn.push(player->getEspada());
 
 	for (int i = 0; i < 70; i++) {
 		plat = new Plataforma(35.f * i, 500.f);
@@ -76,7 +76,7 @@ void Fase::run() {
 
 	//player->drawWindow();
 	listEn.percorrer(player);
-	player->print();
+	player->print(player->anim);
 	//for (int i = 0; i <= listEn.getLen(); i++) {
 	//	Personagem* b = dynamic_cast<Personagem*>((listEn.getItem(i))); //casting
 	//	if (b) {

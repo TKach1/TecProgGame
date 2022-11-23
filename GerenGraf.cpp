@@ -107,13 +107,18 @@ void GerenGraf::setPosition(float x, float y) {
 //	return delta;
 //}
 
-void GerenGraf::imprime(int id, float x, float y) {
+void GerenGraf::imprime(int id, float x, float y, int anim) {
 	if (id == 1) { //Jogador
 		setBodySize(35.f, 35.f);
 		setOrigin();
 		setPosition(x, y);
-		//printf("floats: %f, %f -=- ", x, y);
-		setScale(sf::Vector2f(2.f, 2.f));
+		//printf("%d -=- ", isFaced);
+		if (isFaced) {
+			setScale(sf::Vector2f(2.f, 2.f));
+		}
+		else if(!isFaced) {
+			setScale(sf::Vector2f(-2.f, 2.f));
+		}
 		sf::Vector2f cameraPos;
 		if (x < 450.0f) {
 			cameraPos = sf::Vector2f(450.0f, 450.0f);
@@ -126,10 +131,16 @@ void GerenGraf::imprime(int id, float x, float y) {
 		sf::Vector2u TextureSize = texturaPlayer.getSize();
 		TextureSize.x /= 3;
 		TextureSize.y /= 11;
-		setTextureRect(sf::IntRect(TextureSize.x * 2, (TextureSize.y * 6) + 15, TextureSize.x, TextureSize.y));
+		if (anim == 0) {
+			setTextureRect(sf::IntRect(TextureSize.x * 1, (TextureSize.y * 6) + 15, TextureSize.x, TextureSize.y));
+		}else if (anim == 1) {
+			setTextureRect(sf::IntRect(TextureSize.x * 2, (TextureSize.y * 6) + 15, TextureSize.x, TextureSize.y));
+		}else if (anim == 2) {
+			setTextureRect(sf::IntRect(TextureSize.x * 0, (TextureSize.y * 7) + 15, TextureSize.x, TextureSize.y));
+		}
 		setTexture(&texturaPlayer);
 	}
-	else if (id == 2) {
+	else if (id == 2) { // Plataforma
 		setBodySize(50.f, 50.f);
 		setOrigin();
 		setPosition(x, y);
@@ -137,7 +148,7 @@ void GerenGraf::imprime(int id, float x, float y) {
 		body.setFillColor(sf::Color::Blue);
 		setTexture(NULL);
 	}
-	else if (id == 3) {
+	else if (id == 3) { // Canhao
 		setBodySize(35.f, 35.f);
 		setOrigin();
 		setPosition(x, y);
@@ -146,6 +157,14 @@ void GerenGraf::imprime(int id, float x, float y) {
 		sf::Vector2u TextureSize = texturaPlat.getSize();
 		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
 		setTexture(&texturaPlat);
+	}
+	else if (id == 4) { // Projetil
+		setBodySize(10.f, 10.f);
+		setOrigin();
+		setPosition(x, y);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::Magenta);
+		setTexture(NULL);
 	}
 	drawWindow();
 	setScale(sf::Vector2f(1.f, 1.f));
@@ -156,3 +175,4 @@ GerenGraf* GerenGraf::instance = NULL;
 sf::RenderWindow* GerenGraf::window = new sf::RenderWindow;
 sf::View* GerenGraf::view = new sf::View;
 sf::Event GerenGraf::event;
+bool GerenGraf::isFaced = true;

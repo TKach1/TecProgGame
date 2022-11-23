@@ -15,6 +15,6 @@ void Ente::executarOBJ() {
 
 }
 
-void Ente::print() {
-	g->imprime(id, px, py);
+void Ente::print(int anim) {
+	g->imprime(id, px, py, anim);
 }

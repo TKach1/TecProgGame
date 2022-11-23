@@ -12,8 +12,12 @@ private:
 	Objeto espada;
 	float espadaX;
 	bool isFaced;
+	int time;
+	bool attack;
 	
 public:
+	int anim;
+
 	void move();
 	//void attack();
 	Jogador();

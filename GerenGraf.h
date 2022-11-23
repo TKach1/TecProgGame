@@ -11,6 +11,7 @@ private:
 
 		texturaPlat.loadFromFile("./Texturas/bricks.png");
 	}
+	static bool isFaced;
 protected:
 	sf::RectangleShape body;
 	sf::RectangleShape& corpo;
@@ -29,6 +30,7 @@ public:
 	}
 
 	~GerenGraf();
+	static void setFaced(bool b) { isFaced = b; }
 	sf::RectangleShape getCollider() { return corpo; }
 	//void setwindow(sf::RenderWindow* w) { window = &w; };
 	void drawWindow() { window->draw(body); }
@@ -44,7 +46,7 @@ public:
 
 	static sf::RenderWindow* getWindow() { return window; }
 
-	void imprime(int id, float x, float y);
+	void imprime(int id, float x, float y, int anim);
 	static void run() {
 		view->setSize((sf::Vector2f(0.0f, 0.0f), sf::Vector2f(900.0f, 900.0f)));
 		while (window->pollEvent(event))
