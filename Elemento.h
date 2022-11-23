@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Fase.h"
 //elemento tirado dos videos disponibilizados no moodle
 //template <class TE>class Elemento
 //{

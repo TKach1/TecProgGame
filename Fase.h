@@ -1,12 +1,13 @@
 #pragma once
 #include "Plataforma.h"
 #include "Jogador.hpp"
-#include "Lista.h"
+#include "ListaEntidades.hpp"
 #include "Canhao.hpp"
 
 class Fase {
 private:
-	Lista listEn;
+	ListaEntidades listEn;
+	//Lista listEn;
 	Jogador* player;
 	Plataforma* plat;
 	Canhao* canhao;
