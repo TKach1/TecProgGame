@@ -1,5 +1,7 @@
-﻿  LintaEntidades.cpp
-C:\Users\itach\source\repos\TKach1\TecProgGame\Fase.h(9,17): error C3646: 'listEn': especificador de substituição desconhecido
-C:\Users\itach\source\repos\TKach1\TecProgGame\Fase.h(9,23): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
+﻿  Fase.cpp
+C:\Users\wesle\source\repos\TecProgGame\Fase.cpp(12,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Jogo.cpp
+  LintaEntidades.cpp
   menu.cpp
   Gerando Código...
+  JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\wesle\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe

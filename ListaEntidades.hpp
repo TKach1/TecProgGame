@@ -1,23 +1,19 @@
 #pragma once
 #include "Lista.h"
-//#include "Fase.h"
+#include "Jogador.hpp"
 
 class ListaEntidades {
 private:
 	Lista lista;
 public:
 
-	ListaEntidades() {
+	ListaEntidades();
+	~ListaEntidades();
 
-	}
-
-	~ListaEntidades() {
-
-	}
 	void percorrer(Jogador* player);
 
 	void push(Entidade* it) {
-		lista.pop(it);
+		lista.push(it);
 	}
 
 	void del() {

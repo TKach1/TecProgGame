@@ -1,6 +1,14 @@
 #include "ListaEntidades.hpp"
 #include "Fase.h"
 
+ListaEntidades::ListaEntidades() {
+
+}
+
+ListaEntidades::~ListaEntidades() {
+
+}
+
 void ListaEntidades::percorrer(Jogador* player) {
 	float f = 1.f;
 	Elemento* temp = lista.getFirst();
