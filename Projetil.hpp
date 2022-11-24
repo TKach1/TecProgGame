@@ -5,12 +5,12 @@ class Projetil :
     public Entidade
 {
 private:
-    sf::Vector2f velocidade;
-    sf::Vector2f initialPos;
+    float inix, iniy;
+    float vx, vy;
     int multi;
 public:
 
-    Projetil(sf::Vector2f pos);
+    Projetil(float x, float y);
     ~Projetil();
 
     void projetar();

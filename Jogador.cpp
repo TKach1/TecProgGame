@@ -23,6 +23,7 @@ void Jogador::move() {
         if (!isFaced) {
             //scale(sf::Vector2f(-1.0f, 1.0f));
             isFaced = true;
+            espadaX *= -1;
         }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
@@ -31,9 +32,17 @@ void Jogador::move() {
             espadaX = abs(espadaX) * -1;
         }
         if (isFaced) {
+            //printf("%d -=- ", isFaced);
             //scale(sf::Vector2f(-1.0f, 1.0f)); 
+            espadaX *= -1;
             isFaced = false;
         }
+    }
+    /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) { 
+        attack = true;
+    }*/
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        attack = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular == true && jumpTimer > 200) {
         podePular = false;
@@ -50,12 +59,32 @@ void Jogador::move() {
         jumpTimer++;
     }
 
+
     //body.move(sf::Vector2f(velocidade.x, velocidade.y));
     px += vx;
     py += vy;
     //velocidade.x = 0.f;
     //velocidade.y = 0.f;
     //espada.setPosition(getPosition().x + espadaX + 12, getPosition().y+(body.getSize().y/3));
+    if (attack) {
+        espada.setPos(px + espadaX, py);
+        if (time < 100)
+            anim = 1;
+        else if (time > 100 && time < 500)
+            anim = 2;
+        else if (time > 500) {
+            anim = 0;
+            time = 0;
+            attack = false;
+        }
+        time++;
+    }
+    else
+    {
+        espada.setPos(-100, 0);
+    }
+
+    GerenGraf::setFaced(isFaced);
 }
 
 void Jogador::emColisao(float dx, float dy)
@@ -103,6 +132,7 @@ void Jogador::initOBJ() {
     //setBodySize(25.f, 25.f);
     //setOrigin();
     //inicio = body.getPosition();
+    time = 0;
     px = 50.f;
     py = 50.f;
     jumpHeight = 1.5f;
@@ -112,13 +142,15 @@ void Jogador::initOBJ() {
     jumpTimer = 0;
     vx = 0.f; 
     vy = 0.f;
+    anim = 0;
     
-    espada.setColor(sf::Color(0, 0, 0, 0));
+    
     //espada.setOrigin();
-    espadaX = 20.0f;
+    espadaX = 30.0f;
+    espada.setPos(px + espadaX, py);
+    espada.setSolid(false);
     //espada.setBodySize(10.0f, 5.0f);
     //espada.setPosition(inicio.x+espadaX + 0.1f, inicio.y + 0.1f);
-    espada.setSolid(false);
 
 
     texture.loadFromFile("./Texturas/samubit.png");

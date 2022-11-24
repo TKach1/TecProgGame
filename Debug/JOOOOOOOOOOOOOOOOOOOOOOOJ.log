@@ -1,21 +1,2 @@
-﻿  Canhao.cpp
-C:\Users\gusta\source\repos\TecProgGame\Canhao.cpp(22,14): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
-  Ente.cpp
-  Entidade.cpp
-  Fase.cpp
-C:\Users\gusta\source\repos\TecProgGame\Fase.cpp(12,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  Fase1.cpp
-  Fase2.cpp
-  GerenColisao.cpp
-  GerenGraf.cpp
-  Inimigo.cpp
-  Jogador.cpp
-  Jogo.cpp
-  LintaEntidades.cpp
-  Morcego.cpp
-  Personagem.cpp
-  Plataforma.cpp
-  Projetil.cpp
-  menu.cpp
-  Gerando Código...
-  JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\gusta\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe
+﻿  GerenGraf.cpp
+  JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\wesle\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe

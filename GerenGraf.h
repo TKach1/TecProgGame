@@ -10,9 +10,11 @@ private:
 		printf("texturas loaded...");
 
 		texturaPlat.loadFromFile("./Texturas/bricks.png");
-
-		texturaMorc.loadFromFile("./Texturas/Morceguinho.png");
+		pTime = 0;
 	}
+	static bool isFaced;
+	static bool dano;
+	int pTime;
 protected:
 	sf::RectangleShape body;
 	sf::RectangleShape& corpo;
@@ -32,6 +34,8 @@ public:
 	}
 
 	~GerenGraf();
+	static void setFaced(bool b) { isFaced = b; }
+	static void setDano(bool b) { dano = b; }
 	sf::RectangleShape getCollider() { return corpo; }
 	//void setwindow(sf::RenderWindow* w) { window = &w; };
 	void drawWindow() { window->draw(body); }
@@ -47,7 +51,7 @@ public:
 
 	static sf::RenderWindow* getWindow() { return window; }
 
-	void imprime(int id, float x, float y);
+	void imprime(int id, float x, float y, int anim);
 	static void run() {
 		view->setSize((sf::Vector2f(0.0f, 0.0f), sf::Vector2f(900.0f, 900.0f)));
 		while (window->pollEvent(event))

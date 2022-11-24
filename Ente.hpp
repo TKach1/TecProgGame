@@ -16,5 +16,5 @@ public:
 	float getY() { return py; }
 	void mover(float dx, float dy) { px += dx; py += dy; }
 	virtual void executarOBJ();
-	void print();
+	void print(int anim);
 };

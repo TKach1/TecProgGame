@@ -4,6 +4,8 @@
 #include "ListaEntidades.hpp"
 #include "GerenColisao.hpp"
 #include "Canhao.hpp"
+#include "Serra.hpp"
+
 #include "Morcego.h"
 class Fase {
 protected:
@@ -12,6 +14,8 @@ protected:
 	Jogador* player;
 	Plataforma* plat;
 	Canhao* canhao;
+	Serra* serra;
+	
 	bool isComplete;
 	Morcego* morcego;
 	/*sf::RenderWindow* window;

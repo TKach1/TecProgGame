@@ -3,7 +3,7 @@
 Canhao::Canhao(float x, float y) {
 	id = 2;
 	px = x, py = y;
-	bola = new Projetil(sf::Vector2f(x, y));
+	bola = new Projetil(x, y);
 	initOBJ();
 }
 
@@ -17,8 +17,8 @@ void Canhao::initOBJ() {
 
 void Canhao::atirar() {
 	int temp = 0;
-	float pPos = 0; //sf::Vector2f(x, y)
-	float pos = player->getPositionx();
+	float pPos = getX();
+	float pos = player->getX();
 	temp = pPos - pos;
 
 	if (temp >= 0) {
