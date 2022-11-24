@@ -37,6 +37,7 @@ void ListaEntidades::percorrer(Jogador* player) {
 			if (GerenColisao::checkCollision(*player, (Entidade&)*(temp->getitem()), dx, dy, f) == true) {
 				//causar dano & colidir(caso haja mais que 1 hp)
 				//metodo dano aqui
+				GerenGraf::setDano(true);
 				player->emColisao(dx, dy);
 			}
 		}

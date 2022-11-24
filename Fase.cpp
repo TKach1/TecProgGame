@@ -61,6 +61,9 @@ void Fase::initFase1(Jogador* play) {
 	//canhao->setwindow(window);
 	//canhao->setEnabled(false); //para "destruir" os inimigos 
 	listEn.push(canhao);
+
+	serra = new Serra(200.f, 500.f - 17.5f - 25.f);
+	listEn.push(serra);
 	//canhao->getProjetil()->setwindow(window);
 	listEn.push(canhao->getProjetil());
 }

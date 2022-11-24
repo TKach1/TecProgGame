@@ -10,8 +10,11 @@ private:
 		printf("texturas loaded...");
 
 		texturaPlat.loadFromFile("./Texturas/bricks.png");
+		pTime = 0;
 	}
 	static bool isFaced;
+	static bool dano;
+	int pTime;
 protected:
 	sf::RectangleShape body;
 	sf::RectangleShape& corpo;
@@ -31,6 +34,7 @@ public:
 
 	~GerenGraf();
 	static void setFaced(bool b) { isFaced = b; }
+	static void setDano(bool b) { dano = b; }
 	sf::RectangleShape getCollider() { return corpo; }
 	//void setwindow(sf::RenderWindow* w) { window = &w; };
 	void drawWindow() { window->draw(body); }

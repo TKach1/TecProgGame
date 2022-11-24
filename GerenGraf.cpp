@@ -127,7 +127,17 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 			cameraPos = sf::Vector2f(x, 450.0f);
 		}
 		view->setCenter(cameraPos);
-		body.setFillColor(sf::Color::White);
+		if (dano) {
+			body.setFillColor(sf::Color::Red);
+			pTime++;
+			if (pTime >= 500) {
+				pTime = 0;
+				dano = false;
+			}
+		}
+		else {
+			body.setFillColor(sf::Color::White);
+		}
 		sf::Vector2u TextureSize = texturaPlayer.getSize();
 		TextureSize.x /= 3;
 		TextureSize.y /= 11;
@@ -140,7 +150,7 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		}
 		setTexture(&texturaPlayer);
 	}
-	else if (id == 2) { // Plataforma
+	else if (id == 2) { // Canhao
 		setBodySize(50.f, 50.f);
 		setOrigin();
 		setPosition(x, y);
@@ -148,7 +158,7 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		body.setFillColor(sf::Color::Blue);
 		setTexture(NULL);
 	}
-	else if (id == 3) { // Canhao
+	else if (id == 3) { // Plataforma
 		setBodySize(35.f, 35.f);
 		setOrigin();
 		setPosition(x, y);
@@ -166,6 +176,16 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		body.setFillColor(sf::Color::Magenta);
 		setTexture(NULL);
 	}
+	else if (id == 5) { // Plataforma
+		setBodySize(35.f, 35.f);
+		setOrigin();
+		setPosition(x, y);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::Green);
+		/*sf::Vector2u TextureSize = texturaPlat.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));*/
+		setTexture(NULL);
+	}
 	drawWindow();
 	setScale(sf::Vector2f(1.f, 1.f));
 }
@@ -176,3 +196,4 @@ sf::RenderWindow* GerenGraf::window = new sf::RenderWindow;
 sf::View* GerenGraf::view = new sf::View;
 sf::Event GerenGraf::event;
 bool GerenGraf::isFaced = true;
+bool GerenGraf::dano = false;

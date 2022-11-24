@@ -4,6 +4,7 @@
 #include "ListaEntidades.hpp"
 #include "GerenColisao.hpp"
 #include "Canhao.hpp"
+#include "Serra.hpp"
 
 class Fase {
 private:
@@ -12,6 +13,8 @@ private:
 	Jogador* player;
 	Plataforma* plat;
 	Canhao* canhao;
+	Serra* serra;
+	
 	/*sf::RenderWindow* window;
 	sf::View view;
 	sf::Vector2f direction;*/
