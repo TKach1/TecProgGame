@@ -45,13 +45,22 @@
     <ClCompile Include="Personagem.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="GerenGraf.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="menu.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="GerenGraf.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
     <ClCompile Include="Ente.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase1.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase2.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Morcego.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="LintaEntidades.cpp">
@@ -98,13 +107,22 @@
     <ClInclude Include="Personagem.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="GerenGraf.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="menu.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="GerenGraf.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
     <ClInclude Include="Ente.hpp">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase1.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase2.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Morcego.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="ListaEntidades.hpp">
@@ -115,19 +133,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="MenuRelated\ethn.otf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="MenuRelated\menu-sci-fi-game.png">
-      <Filter>Arquivos de Recurso</Filter>
-    </Image>
-    <Image Include="Texturas\samubit_-_Copia.png">
-      <Filter>Arquivos de Recurso</Filter>
-    </Image>
-    <Image Include="Texturas\samubit.png">
-      <Filter>Arquivos de Recurso</Filter>
-    </Image>
-    <Image Include="Texturas\bricks.png">
+    <Image Include="Texturas\morceguinho.png">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>
