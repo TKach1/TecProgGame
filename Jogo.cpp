@@ -19,7 +19,7 @@ void Jogo::executar() {
     GerenGraf::getWindow()->create(sf::VideoMode(900, 900), "My window");
     while (GerenGraf::getWindow()->isOpen()) {
         GerenGraf::run();
-        if (fase1->getComplete() == true) //mudar pra falso depois de terminar fase 2
+        if (fase1->getComplete() == false)
             fase1->executar();
         else {
             if (fase2->getComplete() == false)

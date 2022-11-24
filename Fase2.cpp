@@ -17,16 +17,16 @@ void Fase2::initFase2(Jogador* play) {
 		plat = new Plataforma(35.f * i, 500.f);
 		listEn.push(plat);
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 4; i++) {
 		plat = new Plataforma(350.f, 500.f -35.f * i);
 		listEn.push(plat);
 	}
 	for (int i = 0; i < 15; i++) {
-		plat = new Plataforma(350.f + 35.f * i, 500.f - 175.f);
+		plat = new Plataforma(350.f + 35.f * i, 500.f - 140.f);
 		listEn.push(plat);
 	}
-	for (int i = 0; i < 7; i++) {
-		plat = new Plataforma(875.f, 255.f + 35.f * i);
+	for (int i = 0; i < 6; i++) {
+		plat = new Plataforma(875.f, 500.f - 175.f + 35.f * i);
 		listEn.push(plat);
 	}
 	for (int i = 0; i < 60; i++) {
@@ -35,7 +35,7 @@ void Fase2::initFase2(Jogador* play) {
 
 		if (i % 15 == 0 && i > 0) {
 			for (int j = 0; j < 5; j++) {
-				plat = new Plataforma(875.f + 35.f * (i+j), 325.f);
+				plat = new Plataforma(875.f + 35.f * (i+j), 325.f + 70.f);
 				listEn.push(plat);
 			}
 		}

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Entidade.hpp"
 //elemento tirado dos videos disponibilizados no moodle
 //template <class TE>class Elemento
 //{

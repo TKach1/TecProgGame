@@ -34,7 +34,7 @@ void Fase1::initFase1(Jogador* play) {
 		if (i % 20 == 0) {
 			//cria uma chance de certas plataformas terem canhoes em cima dela
 			if (rand() % 4 == 0) {
-				canhao = new Canhao((35.f * i) + 35.f, 375.f - 17.5f - 25.f);
+				canhao = new Canhao((35.f * i) + 35.f, 385.f - 17.5f - 25.f);
 				canhao->setPlayer(player);
 				//canhao->setwindow(window);
 				listEn.push(canhao);
@@ -42,7 +42,7 @@ void Fase1::initFase1(Jogador* play) {
 				listEn.push(canhao->getProjetil());
 			}
 			for (int j = 0; j < 3; j++) {
-				plat = new Plataforma(35.f * (i + j), 375.f);
+				plat = new Plataforma(35.f * (i + j), 385.f);
 				//plat->setwindow(window);
 				listEn.push(plat);
 			}
@@ -52,6 +52,8 @@ void Fase1::initFase1(Jogador* play) {
 
 	canhao = new Canhao(140.f, 500.f - 17.5f - 25.f);
 	canhao->setPlayer(player);
+	morcego = new Morcego(140.f, 500.f - 17.5f - 25.f);
+	listEn.push(morcego);
 	//canhao->setwindow(window);
 	//canhao->setEnabled(false); //para "destruir" os inimigos 
 	listEn.push(canhao);

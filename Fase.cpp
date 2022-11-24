@@ -119,7 +119,5 @@ Fase::~Fase() {
 //}
 
 void Fase::deleteFase() {
-	for (int i = 0; i <= listEn.getLen(); i++) {
-		listEn.pop(listEn.getItem(i));
-	}
+	listEn.del();
 }
