@@ -10,5 +10,4 @@ void Plataforma::initOBJ() {
 	setTexture(&texture);*/
 }
 void Plataforma::executarOBJ() {
-
 }

@@ -10,6 +10,8 @@ private:
 		printf("texturas loaded...");
 
 		texturaPlat.loadFromFile("./Texturas/bricks.png");
+
+		texturaMorc.loadFromFile("./Texturas/Morceguinho.png");
 		pTime = 0;
 	}
 	static bool isFaced;

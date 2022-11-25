@@ -186,7 +186,7 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));*/
 		setTexture(NULL);
 	}
-	else if (id == 4) {
+	else if (id == 6) {
 		setBodySize(40.f, 40.f);
 		setOrigin();
 		setPosition(x, y);
@@ -195,6 +195,16 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		sf::Vector2u TextureSize = texturaMorc.getSize();
 		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
 		setTexture(&texturaMorc);
+	}
+	else if(id == 7) {
+		setBodySize(35.f, 35.f);
+		setOrigin();
+		setPosition(x, y);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::Red);
+		sf::Vector2u TextureSize = texturaPlayer.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaPlayer);
 	}
 	drawWindow();
 	setScale(sf::Vector2f(1.f, 1.f));

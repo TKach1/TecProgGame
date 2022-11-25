@@ -73,7 +73,7 @@ void Fase1::executar() {
 	window->clear();*/
 	//player->drawWindow();
 	listEn.percorrer(player);
-	player->print();
+	player->print(1);
 	if (player->getPositionx() >= 4800) {
 		isComplete = true;
 		player->reset();

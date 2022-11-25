@@ -21,7 +21,7 @@ public:
 
 	void setColor(sf::Color c){  }
 
-	virtual void executarOBJ() {}
+	virtual void executarOBJ() { }
 
 	virtual bool isHarmfull() { return _isHarmfull; }
 

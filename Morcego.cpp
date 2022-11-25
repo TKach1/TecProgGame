@@ -2,7 +2,7 @@
 
 Morcego::Morcego(float x, float y)
 {
-	id = 4;
+	id = 6;
 	px = x, py = y;
 	initOBJ();
 }

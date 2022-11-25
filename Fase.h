@@ -5,6 +5,7 @@
 #include "GerenColisao.hpp"
 #include "Canhao.hpp"
 #include "Serra.hpp"
+#include"Vampiro.h"
 
 #include "Morcego.h"
 class Fase {
@@ -15,6 +16,7 @@ protected:
 	Plataforma* plat;
 	Canhao* canhao;
 	Serra* serra;
+	Vampiro* vamp;
 	
 	bool isComplete;
 	Morcego* morcego;
