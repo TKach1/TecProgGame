@@ -8,6 +8,8 @@ private:
 public:
     Morcego(float x, float y);
     ~Morcego();
+
+    bool tomarDano();
     void initOBJ();
     void executarOBJ();
 };

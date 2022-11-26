@@ -2,6 +2,7 @@
 
 Canhao::Canhao(float x, float y) {
 	id = 2;
+	anim = 1;
 	px = x, py = y;
 	bola = new Projetil(x, y);
 	initOBJ();
@@ -12,7 +13,12 @@ Canhao::~Canhao() {
 }
 
 void Canhao::initOBJ() {
+	timer = 0;
+}
 
+bool Canhao::tomarDano() {
+	setEnabled(false);
+	return true;
 }
 
 void Canhao::atirar() {
@@ -23,10 +29,12 @@ void Canhao::atirar() {
 
 	if (temp >= 0) {
 		bola->initOBJ(-1);
+		anim = 1;
 	}
 	else {
 		//atira direita
 		bola->initOBJ(1);
+		anim = 2;
 	}
 }
 
@@ -36,8 +44,12 @@ void Canhao::setPlayer(Jogador* p)
 }
 
 void Canhao::executarOBJ() {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) { //sera alterado para cada x segundos atirar
+	if (timer >= 1000) {
 		atirar();
+		timer = 0;
+	}
+	else {
+		timer++;
 	}
 }
 

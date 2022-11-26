@@ -154,9 +154,16 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		setBodySize(50.f, 50.f);
 		setOrigin();
 		setPosition(x, y);
-		setScale(sf::Vector2f(1.f, 1.f));
-		body.setFillColor(sf::Color::Blue);
-		setTexture(NULL);
+		if (anim == 2) {
+			setScale(sf::Vector2f(1.f, 1.f));
+		}
+		else if (anim == 1) {
+			setScale(sf::Vector2f(-1.f, 1.f));
+		}
+		body.setFillColor(sf::Color::White);
+		sf::Vector2u TextureSize = texturaCanhao.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaCanhao);
 	}
 	else if (id == 3) { // Plataforma
 		setBodySize(35.f, 35.f);
@@ -173,38 +180,72 @@ void GerenGraf::imprime(int id, float x, float y, int anim) {
 		setOrigin();
 		setPosition(x, y);
 		setScale(sf::Vector2f(1.f, 1.f));
-		body.setFillColor(sf::Color::Magenta);
-		setTexture(NULL);
+		body.setFillColor(sf::Color(0,255,0, 255));
+		sf::Vector2u TextureSize = texturaBola.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaBola);
 	}
-	else if (id == 5) { // Plataforma
+	else if (id == 5) { // Serra
 		setBodySize(35.f, 35.f);
 		setOrigin();
 		setPosition(x, y);
 		setScale(sf::Vector2f(1.f, 1.f));
-		body.setFillColor(sf::Color::Green);
-		/*sf::Vector2u TextureSize = texturaPlat.getSize();
-		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));*/
-		setTexture(NULL);
+		body.setFillColor(sf::Color::White);
+		sf::Vector2u TextureSize = texturaSerra.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaSerra);
 	}
-	else if (id == 6) {
+	else if (id == 6) { //morcego
 		setBodySize(40.f, 40.f);
 		setOrigin();
 		setPosition(x, y);
 		setScale(sf::Vector2f(1.f, 1.f));
-		body.setFillColor(sf::Color::Red);
+		body.setFillColor(sf::Color::White);
 		sf::Vector2u TextureSize = texturaMorc.getSize();
-		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		TextureSize.x /= 2;
+		TextureSize.y /= 3;
+		setTextureRect(sf::IntRect(TextureSize.x * 0, TextureSize.y * 0, TextureSize.x, TextureSize.y));
 		setTexture(&texturaMorc);
 	}
-	else if(id == 7) {
+	else if (id == 7) { // Espinho
 		setBodySize(35.f, 35.f);
 		setOrigin();
 		setPosition(x, y);
 		setScale(sf::Vector2f(1.f, 1.f));
-		body.setFillColor(sf::Color::Red);
-		sf::Vector2u TextureSize = texturaPlayer.getSize();
+		body.setFillColor(sf::Color::White);
+		sf::Vector2u TextureSize = texturaSpike.getSize();
 		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
-		setTexture(&texturaPlayer);
+		setTexture(&texturaSpike);
+	}
+	else if(id == 20) { //vampiro
+		setBodySize(35.f, 50.f);
+		setOrigin();
+		setPosition(x, y);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::White);
+		sf::Vector2u TextureSize = texturaVamp.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaVamp);
+	}
+	else if (id == 30) {
+		float tam = 200.f * (x+(anim-x));
+		setBodySize(tam, 20.f);
+		//setOrigin();
+		setPosition(view->getCenter().x-300.0f, 20);
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::Red);
+		setTexture(NULL);
+	}
+	else if (id == 40) {
+		float w = 35.f * (x + (anim - x));
+		setBodySize(35.f, 35.f);
+		//setOrigin();
+		setPosition(view->getCenter().x + w, window->getSize().y - 20.f); //+ ((window->getSize().x/2)+50.f)
+		setScale(sf::Vector2f(1.f, 1.f));
+		body.setFillColor(sf::Color::White);
+		sf::Vector2u TextureSize = texturaCoracao.getSize();
+		setTextureRect(sf::IntRect(0, 0, TextureSize.x, TextureSize.y));
+		setTexture(&texturaCoracao);
 	}
 	drawWindow();
 	setScale(sf::Vector2f(1.f, 1.f));
@@ -215,5 +256,8 @@ GerenGraf* GerenGraf::instance = NULL;
 sf::RenderWindow* GerenGraf::window = new sf::RenderWindow;
 sf::View* GerenGraf::view = new sf::View;
 sf::Event GerenGraf::event;
+sf::Text GerenGraf::texto;
+sf::Font GerenGraf::font;
 bool GerenGraf::isFaced = true;
 bool GerenGraf::dano = false;
+int GerenGraf::points = 0;

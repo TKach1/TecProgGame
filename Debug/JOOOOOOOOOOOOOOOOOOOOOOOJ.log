@@ -1,2 +1,27 @@
-﻿  Vampiro.cpp
-  JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\gusta\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe
+﻿  Canhao.cpp
+C:\Users\wesle\source\repos\TecProgGame\Canhao.cpp(28,14): warning C4244: '=': conversão de 'float' para 'int', possível perda de dados
+  Ente.cpp
+  Entidade.cpp
+  Espinho.cpp
+  Fase.cpp
+C:\Users\wesle\source\repos\TecProgGame\Fase.cpp(12,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Fase1.cpp
+  Fase2.cpp
+C:\Users\wesle\source\repos\TecProgGame\Fase2.cpp(48,37): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  GerenColisao.cpp
+  GerenGraf.cpp
+  Inimigo.cpp
+  Jogador.cpp
+C:\Users\wesle\source\repos\TecProgGame\Jogador.cpp(93,19): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  Jogo.cpp
+  LintaEntidades.cpp
+  Morcego.cpp
+  Personagem.cpp
+  Plataforma.cpp
+  Projetil.cpp
+  Serra.cpp
+  Vampiro.cpp
+  menu.cpp
+  Gerando Código...
+C:\Users\wesle\source\repos\TecProgGame\Vampiro.cpp(35): warning C4715: 'Vampiro::tomarDano': nem todos os caminhos de controle retornam um valor
+  JOOOOOOOOOOOOOOOOOOOOOOOJ.vcxproj -> C:\Users\wesle\source\repos\TecProgGame\Debug\Jogo tec-prog 2022.exe

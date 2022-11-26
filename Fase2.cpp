@@ -2,6 +2,7 @@
 
 Fase2::Fase2(Jogador* play)
 {
+	HealthBar = new Ente(30);
 	isComplete = false;
 	initFase2(play);
 }
@@ -38,10 +39,13 @@ void Fase2::initFase2(Jogador* play) {
 				plat = new Plataforma(875.f + 35.f * (i+j), 325.f + 70.f);
 				listEn.push(plat);
 			}
+			serra = new Serra(875.f + 35.f * (i), 225.f + 70.f);
+			listEn.push(serra);
 		}
 		if (i == 1) {
 			vamp = new Vampiro(875.f + 35.f * i, 500.f - 40.f);
 			listEn.push(vamp);
+			HealthBar->mover(vamp->getIniVida(), 0);
 		}
 	}
 	for (int i = 0; i < 10; i++) {
@@ -53,8 +57,13 @@ void Fase2::initFase2(Jogador* play) {
 
 void Fase2::executar() {
 	player->move();
-	listEn.percorrer(player);
-	player->print(1);
+	if (listEn.percorrer(player)) {
+		listEn.del();
+		initFase2(player);
+		player->reset();
+	}
+	HealthBar->print(vamp->getVida());
+	player->print(player->anim);
 	//requisito para passar da fase 2: matar o chefe
 	//todo: fazer o chefe para poder implementar aqui
 }

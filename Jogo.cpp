@@ -16,13 +16,12 @@ Jogo::~Jogo() {
 }
 
 void Jogo::executar() {
-    GerenGraf::getWindow()->create(sf::VideoMode(900, 900), "My window");
+    GerenGraf::getWindow()->create(sf::VideoMode(900, 900), "Game2D");
     while (GerenGraf::getWindow()->isOpen()) {
         GerenGraf::run();
         if (fase1->getComplete() == true)
             fase1->executar();
-        else {
-            if (fase2->getComplete() == false)
+        else if (fase2->getComplete() == false) {
                 fase2->executar();
         }
     }

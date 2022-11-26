@@ -17,6 +17,7 @@ void Entidade::executarOBJ() {
 
 Entidade::Entidade() : Ente(id)
 {
+	anim = 0;
 	_isSolid = true;
 }
 

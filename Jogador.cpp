@@ -84,6 +84,16 @@ void Jogador::move() {
         espada.setPos(-100, 0);
     }
 
+    if (timerD > 0)
+    {
+        timerD--;
+    }
+
+    for (int i = 0; i < vidas; i++) {
+        hp->mover(vidas, 0);
+        hp->print(i);
+    }
+
     GerenGraf::setFaced(isFaced);
 }
 
@@ -116,13 +126,20 @@ sf::Vector2f Jogador::getInicio()
     return inicio;
 }
 
-void Jogador::Dano() {
+bool Jogador::Dano() {
     //body.setPosition(getInicio());
-    vidas--;
+
+    if (timerD <= 0) {
+        vidas--;
+        timerD = 100;
+    }
     if (vidas == 0) {
         //temporario
         //window->close();
+        vidas = 3;
+        return true;
     }
+    return false;
 }
 
 
@@ -143,6 +160,8 @@ void Jogador::initOBJ() {
     vx = 0.f; 
     vy = 0.f;
     anim = 0;
+    points = 0;
+    hp = new Ente(40);
     
     
     //espada.setOrigin();

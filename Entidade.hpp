@@ -11,6 +11,7 @@ protected:
 	//sf::RenderWindow* window;
 	sf::Texture texture;
 public:
+	int anim;
 	//Entidade(sf::RectangleShape& corpo);
 	Entidade();
 	~Entidade();

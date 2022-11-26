@@ -10,25 +10,30 @@ private:
 	float jumpHeight;
 	int vidas, jumpTimer;
 	Objeto espada;
+	Ente* hp;
 	float espadaX;
 	bool isFaced;
 	int time;
+	int timerD;
 	bool attack;
+	int points;
 	
 public:
 	int anim;
 
+	void operator++() { points++; }
 	void move();
 	//void attack();
 	Jogador();
 	~Jogador();
 
+	int getPoints() { return points; }
 	Objeto* getEspada() { return &espada; }
 	float getPositionx() { return px; }
 	void emColisao(float dx, float dy);
 	sf::Vector2f getInicio();
-	void Dano();
-	void reset() { px = getInicio().x; }
+	bool Dano();
+	void reset() { px = getInicio().x; py = getInicio().y; points = 0; }
 
 	void initOBJ();
 	void executarOBJ();

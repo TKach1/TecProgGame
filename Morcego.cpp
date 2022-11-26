@@ -17,6 +17,11 @@ void Morcego::initOBJ()
 	fly = 0;
 }
 
+bool Morcego::tomarDano() {
+	setEnabled(false);
+	return true;
+}
+
 void Morcego::executarOBJ()
 {
 	if (fly < flyrange && fly >= 0) {

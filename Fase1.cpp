@@ -45,25 +45,34 @@ void Fase1::initFase1(Jogador* play) {
 				plat = new Plataforma(35.f * (i + j), 385.f);
 				//plat->setwindow(window);
 				listEn.push(plat);
+
+				if (i != 0) {
+					spike = new Espinho(35.f * (i + j), 465.f);
+					listEn.push(spike);
+				}
 			}
 		}
+
+		if (i % 20 == 0) {
+			if (i != 0) {
+				morcego = new Morcego(35.f * (i+10), 390.f - 17.5f - 25.f);
+				listEn.push(morcego);
+			}
+		}
+
 	}
-
-
 	canhao = new Canhao(140.f, 500.f - 17.5f - 25.f);
 	canhao->setPlayer(player);
-	morcego = new Morcego(140.f, 500.f - 17.5f - 25.f);
-	listEn.push(morcego);
+	listEn.push(canhao);
+	listEn.push(canhao->getProjetil());
 	//canhao->setwindow(window);
 	//canhao->setEnabled(false); //para "destruir" os inimigos 
-	listEn.push(canhao);
 	//canhao->getProjetil()->setwindow(window);
-	listEn.push(canhao->getProjetil());
 }
 
-void Fase1::executar() {
+void Fase1::executar(){
 	if(isComplete == false)
-	player->move();
+		player->move();
 	//sf::Event event;
 	/*while (window->pollEvent(event))
 	{
@@ -72,8 +81,12 @@ void Fase1::executar() {
 	}
 	window->clear();*/
 	//player->drawWindow();
-	listEn.percorrer(player);
-	player->print(1);
+	if (listEn.percorrer(player)) {
+		listEn.del();
+		initFase1(player);
+		player->reset();
+	}
+	player->print(player->anim);
 	if (player->getPositionx() >= 4800) {
 		isComplete = true;
 		player->reset();

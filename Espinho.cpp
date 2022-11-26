@@ -9,7 +9,7 @@ Espinho::~Espinho() {
 }
 
 void Espinho::initOBJ() {
-	id = 6;
+	id = 7;
 }
 bool Espinho::isHarmfull() {
 	return true;

@@ -8,8 +8,8 @@ class Canhao :
 private:
     Projetil* bola;
     Jogador* player;
+    int timer;
 public:
-
     Canhao(float x, float y);
     ~Canhao();
 
@@ -17,7 +17,8 @@ public:
     void atirar();
     void setPlayer(Jogador* p);
 
-    virtual void initOBJ();
-    virtual void executarOBJ();
+    bool tomarDano();
+    void initOBJ();
+    void executarOBJ();
     bool isHarmfull();
 };

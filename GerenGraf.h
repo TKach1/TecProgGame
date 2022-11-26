@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <sstream>
 class GerenGraf
 {
 private:
@@ -12,21 +13,44 @@ private:
 		texturaPlat.loadFromFile("./Texturas/bricks.png");
 
 		texturaMorc.loadFromFile("./Texturas/Morceguinho.png");
+
+		texturaCanhao.loadFromFile("./Texturas/Canhao.png");
+		
+		texturaVamp.loadFromFile("./Texturas/vamp.png");
+
+		texturaBola.loadFromFile("./Texturas/bola.png");
+
+		texturaSpike.loadFromFile("./Texturas/Spike.png");
+
+		texturaSerra.loadFromFile("./Texturas/Serra.png");
+
+		texturaCoracao.loadFromFile("./Texturas/coracao.png");
+
+		font.loadFromFile("./MenuRelated/ethn.otf");
 		pTime = 0;
 	}
 	static bool isFaced;
 	static bool dano;
 	int pTime;
+	static int points;
+	static sf::Text texto;
+
 protected:
 	sf::RectangleShape body;
 	sf::RectangleShape& corpo;
 	static sf::RenderWindow* window;
 	static sf::View* view;
 
+	static sf::Font font;
 	sf::Texture texturaPlayer;
+	sf::Texture texturaBola;
 	sf::Texture texturaPlat;
 	sf::Texture texturaCanhao;
 	sf::Texture texturaMorc;
+	sf::Texture texturaVamp;
+	sf::Texture texturaSpike;
+	sf::Texture texturaSerra;
+	sf::Texture texturaCoracao;
 public:
 	static GerenGraf* GetInstance() {
 		if (instance == NULL) {
@@ -36,6 +60,7 @@ public:
 	}
 
 	~GerenGraf();
+	static void setPoints(int p) { points = p; }
 	static void setFaced(bool b) { isFaced = b; }
 	static void setDano(bool b) { dano = b; }
 	sf::RectangleShape getCollider() { return corpo; }
@@ -62,6 +87,16 @@ public:
 				window->close();
 			}
 		}
+
+		texto.setFillColor(sf::Color::White);
+		texto.setCharacterSize(24);
+		texto.setFont(font);
+		std::stringstream ss;
+		ss << "Pontos: " << points;
+		texto.setString(ss.str().c_str());
+		texto.setPosition(view->getCenter().x - 300.f, window->getSize().y - 30.f);
+
+		window->draw(texto);
 		window->setView(*view);
 		window->display();
 		window->clear();

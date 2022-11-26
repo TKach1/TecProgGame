@@ -1,8 +1,11 @@
 #pragma once
 #include "Fase.h"
+#include "Espinho.hpp"
 class Fase1 :
     public Fase
 {
+private:
+    Espinho* spike;
 public:
     Fase1(Jogador* play);
     Fase1(){}
