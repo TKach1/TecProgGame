@@ -62,6 +62,9 @@ void Fase2::executar() {
 		initFase2(player);
 		player->reset();
 	}
+	if (vamp->isDead) {
+		isComplete = true;
+	}
 	HealthBar->print(vamp->getVida());
 	player->print(player->anim);
 	//requisito para passar da fase 2: matar o chefe

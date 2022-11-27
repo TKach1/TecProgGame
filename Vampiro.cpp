@@ -19,6 +19,7 @@ void Vampiro::initOBJ()
 	isImmune = true;
 	cooldown = 0;
 	invert = 1;
+	isDead = false;
 }
 
 bool Vampiro::tomarDano() {
@@ -30,6 +31,7 @@ bool Vampiro::tomarDano() {
 	if (life <= 0) {
 		setEnabled(false);
 		return true;
+		isDead = true;
 		//morreu vamp
 	}
 }

@@ -101,5 +101,30 @@ public:
 		window->display();
 		window->clear();
 	}
+
+	static std::string getNome() {
+		sf::String playerInput;
+		sf::Text playerText;
+
+		playerText.setFillColor(sf::Color::White);
+		playerText.setCharacterSize(24);
+		playerText.setFont(font);
+		playerText.setPosition(view->getCenter().x - 300.f, window->getSize().y - 30.f);
+			while (window->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed) {
+					window->close();
+				}
+
+				if (event.type == sf::Event::TextEntered)
+				{
+					playerInput += event.text.unicode;
+					playerText.setString(playerInput);
+				}
+
+				window->draw(playerText);
+			}
+		return playerInput;
+	}
 };
 

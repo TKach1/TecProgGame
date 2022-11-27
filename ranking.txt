@@ -1,0 +1,5 @@
+ROGER,28
+cle,24
+facade,23
+ad,9
+clovis,5

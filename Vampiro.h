@@ -8,6 +8,8 @@ private:
     int invert;
     bool isImmune;
 public:
+
+    bool isDead;
     Vampiro(float x, float y);
     ~Vampiro();
 

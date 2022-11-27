@@ -2,7 +2,6 @@
 //#include "jogo.hpp"
 #include "menu.hpp"
 
-
 int main() {
 	Menu menu;
 	menu.run_menu();

@@ -17,4 +17,5 @@ public:
 	Jogo();
 	~Jogo();
 	void executar();
+	void salvarRanking();
 };
