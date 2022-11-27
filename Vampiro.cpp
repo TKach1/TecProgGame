@@ -30,8 +30,8 @@ bool Vampiro::tomarDano() {
 	}
 	if (life <= 0) {
 		setEnabled(false);
-		return true;
 		isDead = true;
+		return true;
 		//morreu vamp
 	}
 }

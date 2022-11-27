@@ -1,5 +1,6 @@
 #include "menu.hpp"
 #include "Jogo.hpp"
+#include <fstream>
 //Menu com base no vídeo: https://www.youtube.com/watch?v=h8-Q4eu3Qt4
 Menu::Menu(){
   window = new sf::RenderWindow();
@@ -33,9 +34,9 @@ void Menu::set_values(){
   pos_mouse = {0,0};
   mouse_coord = {0, 0};
 
-  options = {"Vampire's Tale", "1 Jogador", "2 Jogadores", "Sobre", "Sair"};
+  options = {"Vampire's Tale", "Fase 1", "Fase 2", "Sobre", "Sair"};
   texts.resize(5);
-  coords = {{558,40},{590,195},{575,282},{605,370},{623,457}};
+  coords = {{558,40},{610,195},{610,282},{605,370},{623,457}};
   sizes = {18,20,18,24,24};
 
   for (std::size_t i{}; i < texts.size(); ++i){
@@ -95,7 +96,29 @@ void Menu::loop_events(){
           window->close();
           Jogo jogo;
       }
-      std::cout << options[pos] << '\n';
+      if (pos == 2) {
+          window->close();
+          Jogo jogo;
+      }
+      if (pos == 3) {
+
+          std::string line;
+          std::fstream myfile;
+
+          std::cout << std::endl << "\tRANKING" << std::endl << std::endl;
+
+          myfile.open("ranking.txt", std::fstream::in);
+          if (myfile.is_open()) {
+              for (int i = 0; i < 5; i++) {
+                  getline(myfile, line);
+                  std::cout << line << std::endl;
+              }
+              myfile.close();
+          }
+
+          std::cout << '\n' << "Sobre: Trabalho realizado pelos Alunos: Wesley Brandao e Gustavo Tomazzoni" << '\n' << "Juntamente com o professor Jean M. Simao como orientador";
+      }
+      //std::cout << options[pos] << '\n';
     }
 
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){

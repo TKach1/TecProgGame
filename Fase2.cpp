@@ -62,7 +62,7 @@ void Fase2::executar() {
 		initFase2(player);
 		player->reset();
 	}
-	if (vamp->isDead) {
+	if (vamp->isDead == true) {
 		isComplete = true;
 	}
 	HealthBar->print(vamp->getVida());

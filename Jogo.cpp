@@ -88,6 +88,8 @@ void Jogo::salvarRanking() {
         myfile.close();
     }
 
+
+    system("pause");
     /*myfile.open("ranking.txt", std::fstream::out);
     std::cout << nick;
     myfile << nick << "," << player1->getPoints();
@@ -103,7 +105,7 @@ void Jogo::executar() {
         else if (fase2->getComplete() == false) { //false
             fase2->executar();
         }
-        else if (fase2->getComplete() == true) { //true
+        if (fase2->getComplete() == true) { //true
             GerenGraf::getWindow()->close();
             salvarRanking();
         }
